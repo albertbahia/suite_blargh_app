@@ -34,7 +34,10 @@ var App = {
 $(function() {
 	console.log('Ninja loading, sshhh.');
 
-	var post = new App.Views.Post();
+	posts = new App.Collections.Posts();
+	posts.fetch({ reset: true });
 
-
+	list = new App.Views.PostList({
+		collection: posts
+	});
 });
