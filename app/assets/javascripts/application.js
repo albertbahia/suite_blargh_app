@@ -16,9 +16,25 @@
 //= require underscore
 //= require backbone
 //= require handlebars
+//= require_self
 //= require_tree ./backbone/routers
 //= require_tree ./backbone/models
 //= require_tree ./backbone/collections
 //= require_tree ./backbone/views
 //= require_tree ./templates
 //= require_tree .
+
+var App = {
+	Models: {},
+	Collections: {},
+	Views: {},
+	Routers: {}
+};
+
+$(function() {
+	console.log('Ninja loading, sshhh.');
+
+	var post = new App.Views.Post();
+
+
+});
