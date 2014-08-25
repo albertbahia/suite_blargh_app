@@ -38,12 +38,17 @@ $(function() {
   App.Collections.posts = new App.Collections.Posts();
   App.Collections.posts.fetch({ reset: true });
 
+
   App.Views.posts = new App.Views.PostList({
     collection: App.Collections.posts
   });
-
-  form = new App.Views.addForm({
+  
+  App.Views.postForm = new App.Views.addPostForm({
     collection: App.Collections.posts 
   });
+
+  App.Routers.posts = new App.Routers.Posts();
+
+  Backbone.history.start();
 
 });

@@ -24,6 +24,10 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
+		@post = Post.find(params[:id])
+		if @post.destroy
+			render status: 200, json: @post.to_json
+		end
 	end
 
 	private

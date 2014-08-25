@@ -9,7 +9,8 @@ App.Views.Post = Backbone.View.extend({
   },
 
   events: {
-    'click button': 'deletePost'
+    'click button': 'deletePost',
+    'click img': 'showPost'
   },
 
   render: function(){
@@ -19,5 +20,11 @@ App.Views.Post = Backbone.View.extend({
 
   deletePost: function() {
     this.model.destroy();
+  },
+
+  showPost: function() {
+  	var post = this.model;
+  	console.log('showing post');
+  	App.Routers.posts.navigate('posts/' + post.id);
   }
 });

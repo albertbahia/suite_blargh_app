@@ -1,4 +1,4 @@
-App.Views.addForm = Backbone.View.extend({
+App.Views.addPostForm = Backbone.View.extend({
   el: '#form',
 
   initialize: function() {
@@ -23,6 +23,10 @@ App.Views.addForm = Backbone.View.extend({
       photo_url: this.$el.find("#photo_url").val(),
     };
     this.collection.create(post);
+    $('input').val('');
+    
+    App.Routers.posts.navigate('');
+
     console.log(post);
     console.log('adding post');
   }

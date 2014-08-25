@@ -7,6 +7,10 @@ App.Views.PostList = Backbone.View.extend({
     this.render();
   },
 
+  // events: {
+  // 	'click img': 'showPost'
+  // }
+
   render: function() {
     this.$el.empty();
     this.collection.each(function(post) {
@@ -23,4 +27,12 @@ App.Views.PostList = Backbone.View.extend({
     });
     this.$el.prepend(postView.$el);
   }
+
+ //  showPost: function() {
+	// // var post = this.model;
+	// // console.log(post);
+	// console.log(this.collection.models);
+	// App.Routers.posts.navigate('posts/' + post.id)
+	// console.log('show post');
+ //  }
 });
