@@ -1,18 +1,23 @@
-App.Views.Post = Backbone.View.extend({
-	className: 'post',
+var PostView = Backbone.View.extend({
+  className: 'post',
 
-	tagName: 'div',
+  initialize: function() {
+    this.template = HandlebarsTemplates['posts/post'];
+    this.listenTo(this.model, 'change', this.render);
+    this.listenTo(this.model, 'destroy', this.remove);
+    this.render();
+  },
 
-	initialize: function() {
-		console.log('View initialized, dude.');
-		this.template = HandlebarsTemplates['posts/post'];
-		this.render();
-	},
+  events: {
+    'click button': 'deletePost'
+  },
 
+  render: function(){
+    this.$el.empty();
+    this.$el.html(this.template(this.model.toJSON()));
+  },
 
-	render: function() {
-		console.log('View rendering, dude.');
-		this.$el.empty();
-		this.$el.html(this.template(this.model.toJSON()));
-	}
+  deletePost: function() {
+    this.model.destroy();
+  }
 });

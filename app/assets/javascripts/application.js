@@ -16,7 +16,6 @@
 //= require underscore
 //= require backbone
 //= require handlebars
-//= require_self
 //= require_tree ./backbone/routers
 //= require_tree ./backbone/models
 //= require_tree ./backbone/collections
@@ -24,20 +23,19 @@
 //= require_tree ./templates
 //= require_tree .
 
-var App = {
-	Models: {},
-	Collections: {},
-	Views: {},
-	Routers: {}
-};
 
 $(function() {
-	console.log('Ninja loading, sshhh.');
 
-	posts = new App.Collections.Posts();
-	posts.fetch({ reset: true });
 
-	list = new App.Views.PostList({
-		collection: posts
-	});
+  posts = new PostsCollection();
+  posts.fetch({ reset: true });
+
+  list = new PostListView({
+    collection: posts
+  });
+
+  // form = new FormView({
+  //   collection: grumbles 
+  // });
+
 });
