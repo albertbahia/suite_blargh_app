@@ -1,4 +1,4 @@
-var PostView = Backbone.View.extend({
+App.Views.Post = Backbone.View.extend({
   className: 'post',
 
   initialize: function() {

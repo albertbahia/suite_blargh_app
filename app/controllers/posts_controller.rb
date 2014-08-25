@@ -10,10 +10,11 @@ class PostsController < ApplicationController
 		render status: 200, json: @post.to_json
 	end
 
-	def new
-	end
-
 	def create
+		@post = Post.new(post_params)
+		if @post.save
+			render status:200, json: @post.to_json
+		end
 	end
 
 	def edit
@@ -26,8 +27,8 @@ class PostsController < ApplicationController
 	end
 
 	private
-	def posts_params
-		params.require(:post).permit(:author, :title, :content)
+	def post_params
+		params.require(:post).permit(:author, :title, :content, :photo_url)
 	end
 
 end

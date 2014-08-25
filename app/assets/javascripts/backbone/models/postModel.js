@@ -1,4 +1,4 @@
-var PostModel = Backbone.Model.extend({
+App.Models.Post = Backbone.Model.extend({
   initialize: function() {
     console.log('New Post Model Created.');
   },

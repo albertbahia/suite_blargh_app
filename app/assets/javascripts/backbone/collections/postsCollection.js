@@ -1,7 +1,7 @@
-var PostsCollection = Backbone.Collection.extend({
+App.Collections.Posts = Backbone.Collection.extend({
   initialize: function() {
     console.log('New Posts Collection');
   },
-  model: PostModel,
+  model: App.Models.Post,
   url: '/posts'
 })

@@ -1,4 +1,4 @@
-var PostListView = Backbone.View.extend({
+App.Views.PostList = Backbone.View.extend({
   el: '#posts',
 
   initialize: function() {
@@ -10,7 +10,7 @@ var PostListView = Backbone.View.extend({
   render: function() {
     this.$el.empty();
     this.collection.each(function(post) {
-      var postView = new PostView({
+      var postView = new App.Views.Post({
         model: post
       });
       this.$el.prepend(postView.el);
@@ -18,7 +18,7 @@ var PostListView = Backbone.View.extend({
   },
 
   addToList: function(post) {
-    var postView = new PostView({
+    var postView = new App.Views.Post({
       model: post
     });
     this.$el.prepend(postView.$el);
